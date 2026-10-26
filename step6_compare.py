@@ -6,7 +6,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 nltk.download("vader_lexicon")
 
-# --- Model 1: our own trained model ---
+# Model 1: our own trained model
 model = joblib.load("model.pkl")
 vectorizer = joblib.load("vectorizer.pkl")
 stop_words = set(stopwords.words("english")) - {"not", "no", "nor", "never"}
@@ -28,7 +28,7 @@ def our_model(text):
         return "Negative", prob
     return "Neutral", prob
 
-# --- Model 2: pretrained VADER ---
+# Model 2: pretrained VADER
 vader = SentimentIntensityAnalyzer()
 
 def vader_model(text):
@@ -39,7 +39,7 @@ def vader_model(text):
         return "Negative", score
     return "Neutral", score
 
-# --- Compare both on every input ---
+# Compare both on every input
 print("Sentiment Comparison (type 'quit' to exit)")
 while True:
     text = input("\nEnter a sentence: ")

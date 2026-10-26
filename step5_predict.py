@@ -6,7 +6,7 @@ from nltk.corpus import stopwords
 model = joblib.load("model.pkl")
 vectorizer = joblib.load("vectorizer.pkl")
 
-# Same cleaning as Step 3. It must match exactly.
+
 stop_words = set(stopwords.words("english")) - {"not", "no", "nor", "never"}
 
 def clean_text(text):
